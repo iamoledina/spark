@@ -6,20 +6,22 @@
     <title>Kaizen Consulting - Random Question Picker</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Mr Eaves XL Mod OT Regular', Arial, sans-serif;
             text-align: center;
             margin: 50px;
-            background-color: #f4f4f9;
-            color: #333333;
+            background-color: #ffffff;
+            color: #000000;
         }
         header {
             margin-bottom: 20px;
         }
         header img {
             width: 200px;
+            margin-bottom: 20px;
         }
         h1 {
-            color: #007BFF;
+            color: #7248bd;
+            font-size: 28px;
         }
         button {
             padding: 10px 20px;
@@ -27,61 +29,14 @@
             margin-top: 20px;
             cursor: pointer;
             border: none;
-            background-color: #007BFF;
-            color: #FFFFFF;
+            background-color: #7248bd;
+            color: #ffffff;
             border-radius: 5px;
         }
         button:hover {
-            background-color: #0056b3;
+            background-color: #9c74e0;
         }
         #question {
             margin-top: 30px;
             font-size: 24px;
-            font-weight: bold;
-        }
-        footer {
-            margin-top: 50px;
-            font-size: 14px;
-        }
-        footer a {
-            color: #007BFF;
-            text-decoration: none;
-        }
-        footer a:hover {
-            text-decoration: underline;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <img src="https://www.kaizen.consulting/assets/images/logo.png" alt="Kaizen Consulting Logo">
-    </header>
-    <h1>Random Question Picker</h1>
-    <p>Click the button to generate a quick round question!</p>
-    <button onclick="getRandomQuestion()">Get Question</button>
-    <p id="question">Your random question will appear here.</p>
-    <footer>
-        <p>&copy; 2024 <a href="https://www.kaizen.consulting/">Kaizen Consulting</a></p>
-    </footer>
-
-    <script>
-        const questions = [
-            "What’s the first thing you do to start your day productively?",
-            "What’s one word that describes your approach to business?",
-            "Who’s a mentor or figure you admire, and why?",
-            "What’s a book or resource every entrepreneur should read?",
-            "What’s your favorite quote or mantra that keeps you motivated?",
-            "What’s the best decision you’ve made in your business?",
-            "What’s one piece of advice you’d give to someone starting out?",
-            "What’s your go-to method for solving problems?",
-            "What’s one habit that’s had the biggest impact on your success?",
-            "What’s one metric you track religiously in your business?"
-        ];
-
-        function getRandomQuestion() {
-            const randomIndex = Math.floor(Math.random() * questions.length);
-            document.getElementById("question").innerText = questions[randomIndex];
-        }
-    </script>
-</body>
-</html>
+            font
