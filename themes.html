@@ -17,17 +17,50 @@
             height: 100vh;
             overflow: hidden;
         }
-        .container {
-            text-align: center;
-            color: #ffffff;
-            max-width: 800px;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.5);
+        .content-wrapper {
+            display: flex;
+            width: 90%;
+            max-width: 1200px;
+            height: 80%;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
             border-radius: 15px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            background-color: #ffffff;
+            position: relative;
+        }
+        /* Image Section */
+        .image-section {
+            flex: 1;
+            background: url('https://i.imgur.com/liYpHlf.jpg') no-repeat center center;
+            background-size: cover;
+            position: relative;
+            color: #ffffff;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .theme-display {
+            font-size: 48px;
+            font-weight: bold;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+            margin-bottom: 20px;
+        }
+        /* Content Section */
+        .content-section {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        header img {
+            width: 90px; /* Reduced size */
+            margin-bottom: 20px;
         }
         h1 {
             font-size: 28px;
+            color: #7248bd;
             margin-bottom: 20px;
         }
         button {
@@ -44,96 +77,37 @@
         button:hover {
             transform: translateY(-3px);
         }
-        #theme-output {
-            margin-top: 30px;
-            font-size: 24px;
-            font-weight: bold;
-            color: #ffffff;
-        }
-        #questions-output {
-            margin-top: 10px;
+        .questions-output {
+            margin-top: 20px;
             font-size: 18px;
-            color: #e0e0e0;
+            color: #555555;
+        }
+        .questions-output ul {
+            padding-left: 20px;
+        }
+        footer {
+            margin-top: auto;
+            font-size: 14px;
+            color: #999999;
+        }
+        footer a {
+            color: #7248bd;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Theme Generator</h1>
-        <p>Click the button to generate a theme focus and opening questions!</p>
-        <button onclick="generateTheme()">Generate Theme</button>
-        <div id="theme-output"></div>
-        <div id="questions-output"></div>
-    </div>
+    <div class="content-wrapper">
+        <!-- Image Section -->
+        <div class="image-section">
+            <div id="theme-display" class="theme-display"></div>
+        </div>
 
-    <script>
-        const themes = [
-            {
-                name: "Overcoming Challenges",
-                questions: [
-                    "What’s one of the toughest challenges you’ve faced?",
-                    "How did you work through it, and what kept you motivated?"
-                ]
-            },
-            {
-                name: "Making Bold Decisions",
-                questions: [
-                    "Tell us about a moment when you made a bold choice that changed everything.",
-                    "What risks did you take, and how did you manage them?"
-                ]
-            },
-            {
-                name: "Building Strong Relationships",
-                questions: [
-                    "What’s a relationship or partnership that significantly impacted your business?",
-                    "How do you approach building lasting connections?"
-                ]
-            },
-            {
-                name: "Standing Out in the Market",
-                questions: [
-                    "What’s one thing you’ve done to make your business stand out from competitors?",
-                    "What strategies helped you create a unique identity?"
-                ]
-            },
-            {
-                name: "Balancing Vision and Execution",
-                questions: [
-                    "How do you stay focused on your vision while managing the daily grind?",
-                    "What’s a strategy you use to balance big ideas with practical steps?"
-                ]
-            },
-            {
-                name: "Celebrating Success",
-                questions: [
-                    "What’s a recent win you’re proud of, and how did you celebrate it?",
-                    "How do you define success for yourself and your business?"
-                ]
-            },
-            {
-                name: "Embracing Change",
-                questions: [
-                    "What’s a recent change you embraced, and how did it impact your business?",
-                    "How do you prepare yourself and your team for change?"
-                ]
-            }
-        ];
-
-        function generateTheme() {
-            const randomIndex = Math.floor(Math.random() * themes.length);
-            const selectedTheme = themes[randomIndex];
-            const themeOutput = document.getElementById("theme-output");
-            const questionsOutput = document.getElementById("questions-output");
-
-            // Display theme and questions
-            themeOutput.innerText = `Theme Focus: ${selectedTheme.name}`;
-            questionsOutput.innerHTML = `
-                <p>Opening Questions:</p>
-                <ul>
-                    ${selectedTheme.questions.map(question => `<li>${question}</li>`).join("")}
-                </ul>
-            `;
-        }
-    </script>
-</body>
-</html>
+        <!-- Content Section -->
+        <div class="content-section">
+            <header>
+                <!-- Logo -->
+                <
