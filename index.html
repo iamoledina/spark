@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Question Picker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        h1 {
+            color: #555;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin-top: 20px;
+            cursor: pointer;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #question {
+            margin-top: 30px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Random Question Picker</h1>
+    <p>Click the button to generate a quick round question!</p>
+    <button onclick="getRandomQuestion()">Get Question</button>
+    <p id="question">Your random question will appear here.</p>
+
+    <script>
+        const questions = [
+            "What’s the first thing you do to start your day productively?",
+            "What’s one word that describes your approach to business?",
+            "Who’s a mentor or figure you admire, and why?",
+            "What’s a book or resource every entrepreneur should read?",
+            "What’s your favorite quote or mantra that keeps you motivated?",
+            "What’s the best decision you’ve made in your business?",
+            "What’s one piece of advice you’d give to someone starting out?",
+            "What’s your go-to method for solving problems?",
+            "What’s one habit that’s had the biggest impact on your success?",
+            "What’s one metric you track religiously in your business?"
+        ];
+
+        function getRandomQuestion() {
+            const randomIndex = Math.floor(Math.random() * questions.length);
+            document.getElementById("question").innerText = questions[randomIndex];
+        }
+    </script>
+</body>
+</html>
