@@ -27,6 +27,7 @@
             border-radius: 15px;
             overflow: hidden;
             background-color: #ffffff;
+            position: relative;
         }
         /* Image Section */
         .image-section {
@@ -42,6 +43,19 @@
             right: 0;
             bottom: 0;
             background: rgba(114, 72, 189, 0.6); /* Adds a gradient overlay */
+        }
+        /* Timer Overlay */
+        #timer {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 80px;
+            color: #ffffff;
+            font-weight: bold;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+            z-index: 10;
+            display: none; /* Hidden by default */
         }
         /* Content Section */
         .content-section {
@@ -89,11 +103,6 @@
             opacity: 0;
             transition: opacity 0.5s ease-in-out;
         }
-        #timer {
-            margin-top: 10px;
-            font-size: 18px;
-            color: #7248bd;
-        }
         footer {
             margin-top: auto;
             font-size: 14px;
@@ -113,6 +122,8 @@
         <!-- Image Section -->
         <div class="image-section">
             <div class="image-overlay"></div>
+            <!-- Timer Display -->
+            <div id="timer"></div>
         </div>
 
         <!-- Content Section -->
@@ -125,7 +136,6 @@
             <p>Click the button below to generate a quick round question for your next discussion!</p>
             <button onclick="generateQuestion()">Get Question</button>
             <p id="question">Your random question will appear here.</p>
-            <p id="timer"></p>
             <footer>
                 <p>&copy; 2024 <a href="https://www.kaizen.consulting/">Kaizen Consulting</a></p>
             </footer>
@@ -165,14 +175,18 @@
             clearInterval(timerInterval);
             let timeLeft = 20;
 
-            // Start 20-second countdown
-            timerElement.innerText = `Time left: ${timeLeft} seconds`;
+            // Show the timer and start countdown
+            timerElement.style.display = "block";
+            timerElement.innerText = timeLeft;
             timerInterval = setInterval(() => {
                 timeLeft--;
                 if (timeLeft > 0) {
-                    timerElement.innerText = `Time left: ${timeLeft} seconds`;
+                    timerElement.innerText = timeLeft;
                 } else {
                     timerElement.innerText = "Time's up!";
+                    setTimeout(() => {
+                        timerElement.style.display = "none"; // Hide after 1 second
+                    }, 1000);
                     clearInterval(timerInterval);
                 }
             }, 1000);
