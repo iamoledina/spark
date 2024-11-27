@@ -3,17 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Question Picker</title>
+    <title>Kaizen Consulting - Random Question Picker</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             margin: 50px;
             background-color: #f4f4f9;
-            color: #333;
+            color: #333333;
+        }
+        header {
+            margin-bottom: 20px;
+        }
+        header img {
+            width: 200px;
         }
         h1 {
-            color: #555;
+            color: #007BFF;
         }
         button {
             padding: 10px 20px;
@@ -22,7 +28,7 @@
             cursor: pointer;
             border: none;
             background-color: #007BFF;
-            color: white;
+            color: #FFFFFF;
             border-radius: 5px;
         }
         button:hover {
@@ -33,13 +39,30 @@
             font-size: 24px;
             font-weight: bold;
         }
+        footer {
+            margin-top: 50px;
+            font-size: 14px;
+        }
+        footer a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
+    <header>
+        <img src="https://www.kaizen.consulting/assets/images/logo.png" alt="Kaizen Consulting Logo">
+    </header>
     <h1>Random Question Picker</h1>
     <p>Click the button to generate a quick round question!</p>
     <button onclick="getRandomQuestion()">Get Question</button>
     <p id="question">Your random question will appear here.</p>
+    <footer>
+        <p>&copy; 2024 <a href="https://www.kaizen.consulting/">Kaizen Consulting</a></p>
+    </footer>
 
     <script>
         const questions = [
