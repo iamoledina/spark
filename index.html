@@ -39,4 +39,51 @@
         #question {
             margin-top: 30px;
             font-size: 24px;
-            font
+            font-weight: bold;
+        }
+        footer {
+            margin-top: 50px;
+            font-size: 14px;
+        }
+        footer a {
+            color: #7248bd;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="https://www.kaizen.consulting/assets/images/logo.png" alt="Kaizen Consulting Logo">
+    </header>
+    <h1>Random Question Picker</h1>
+    <p>Click the button to generate a quick round question!</p>
+    <button onclick="getRandomQuestion()">Get Question</button>
+    <p id="question">Your random question will appear here.</p>
+    <footer>
+        <p>&copy; 2024 <a href="https://www.kaizen.consulting/">Kaizen Consulting</a></p>
+    </footer>
+
+    <script>
+        const questions = [
+            "What’s the first thing you do to start your day productively?",
+            "What’s one word that describes your approach to business?",
+            "Who’s a mentor or figure you admire, and why?",
+            "What’s a book or resource every entrepreneur should read?",
+            "What’s your favorite quote or mantra that keeps you motivated?",
+            "What’s the best decision you’ve made in your business?",
+            "What’s one piece of advice you’d give to someone starting out?",
+            "What’s your go-to method for solving problems?",
+            "What’s one habit that’s had the biggest impact on your success?",
+            "What’s one metric you track religiously in your business?"
+        ];
+
+        function getRandomQuestion() {
+            const randomIndex = Math.floor(Math.random() * questions.length);
+            document.getElementById("question").innerText = questions[randomIndex];
+        }
+    </script>
+</body>
+</html>
