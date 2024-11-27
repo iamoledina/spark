@@ -89,6 +89,11 @@
             opacity: 0;
             transition: opacity 0.5s ease-in-out;
         }
+        #timer {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #7248bd;
+        }
         footer {
             margin-top: auto;
             font-size: 14px;
@@ -118,8 +123,9 @@
             </header>
             <h1>Random Question Picker</h1>
             <p>Click the button below to generate a quick round question for your next discussion!</p>
-            <button onclick="getRandomQuestion()">Get Question</button>
+            <button onclick="generateQuestion()">Get Question</button>
             <p id="question">Your random question will appear here.</p>
+            <p id="timer"></p>
             <footer>
                 <p>&copy; 2024 <a href="https://www.kaizen.consulting/">Kaizen Consulting</a></p>
             </footer>
@@ -140,14 +146,36 @@
             "What’s one metric you track religiously in your business?"
         ];
 
-        function getRandomQuestion() {
+        let timerInterval;
+
+        function generateQuestion() {
+            // Generate a random question
             const randomIndex = Math.floor(Math.random() * questions.length);
             const questionElement = document.getElementById("question");
-            questionElement.style.opacity = 0; // Fade-out
+            const timerElement = document.getElementById("timer");
+
+            // Update question and reset opacity
+            questionElement.style.opacity = 0;
             setTimeout(() => {
                 questionElement.innerText = questions[randomIndex];
-                questionElement.style.opacity = 1; // Fade-in after update
+                questionElement.style.opacity = 1;
             }, 500);
+
+            // Reset timer if one is already running
+            clearInterval(timerInterval);
+            let timeLeft = 20;
+
+            // Start 20-second countdown
+            timerElement.innerText = `Time left: ${timeLeft} seconds`;
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                if (timeLeft > 0) {
+                    timerElement.innerText = `Time left: ${timeLeft} seconds`;
+                } else {
+                    timerElement.innerText = "Time's up!";
+                    clearInterval(timerInterval);
+                }
+            }, 1000);
         }
     </script>
 </body>
