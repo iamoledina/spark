@@ -39,6 +39,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            text-align: center;
         }
         .theme-display {
             font-size: 48px;
@@ -103,11 +104,95 @@
     <div class="content-wrapper">
         <!-- Image Section -->
         <div class="image-section">
-            <div id="theme-display" class="theme-display"></div>
+            <div id="theme-display" class="theme-display">Click to Generate a Theme</div>
         </div>
 
         <!-- Content Section -->
         <div class="content-section">
             <header>
                 <!-- Logo -->
-                <
+                <img src="https://i.imgur.com/JlL9PyT.png" alt="Kaizen Consulting Logo">
+            </header>
+            <h1>Theme Generator</h1>
+            <p>Click the button to generate a theme focus and opening questions!</p>
+            <button onclick="generateTheme()">Generate Theme</button>
+            <div id="questions-output" class="questions-output"></div>
+            <footer>
+                <p>&copy; 2024 <a href="https://www.kaizen.consulting/">Kaizen Consulting</a></p>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        const themes = [
+            {
+                name: "Overcoming Challenges",
+                questions: [
+                    "What’s one of the toughest challenges you’ve faced?",
+                    "How did you work through it, and what kept you motivated?"
+                ]
+            },
+            {
+                name: "Making Bold Decisions",
+                questions: [
+                    "Tell us about a moment when you made a bold choice that changed everything.",
+                    "What risks did you take, and how did you manage them?"
+                ]
+            },
+            {
+                name: "Building Strong Relationships",
+                questions: [
+                    "What’s a relationship or partnership that significantly impacted your business?",
+                    "How do you approach building lasting connections?"
+                ]
+            },
+            {
+                name: "Standing Out in the Market",
+                questions: [
+                    "What’s one thing you’ve done to make your business stand out from competitors?",
+                    "What strategies helped you create a unique identity?"
+                ]
+            },
+            {
+                name: "Balancing Vision and Execution",
+                questions: [
+                    "How do you stay focused on your vision while managing the daily grind?",
+                    "What’s a strategy you use to balance big ideas with practical steps?"
+                ]
+            },
+            {
+                name: "Celebrating Success",
+                questions: [
+                    "What’s a recent win you’re proud of, and how did you celebrate it?",
+                    "How do you define success for yourself and your business?"
+                ]
+            },
+            {
+                name: "Embracing Change",
+                questions: [
+                    "What’s a recent change you embraced, and how did it impact your business?",
+                    "How do you prepare yourself and your team for change?"
+                ]
+            }
+        ];
+
+        function generateTheme() {
+            const randomIndex = Math.floor(Math.random() * themes.length);
+            const selectedTheme = themes[randomIndex];
+            const themeDisplay = document.getElementById("theme-display");
+            const questionsOutput = document.getElementById("questions-output");
+
+            // Display theme on the left over the image
+            themeDisplay.innerText = selectedTheme.name;
+
+            // Display questions in the content section
+            questionsOutput.innerHTML = `
+                <p>Opening Questions:</p>
+                <ul>
+                    ${selectedTheme.questions.map(question => `<li>${question}</li>`).join("")}
+                </ul>
+            `;
+        }
+    </script>
+</body>
+</html>
