@@ -143,16 +143,29 @@
 
     <script>
         const questions = [
+            "What’s the most important thing you do at the start of your day?",
+            "What’s one lesson you’ve learned from a recent mistake?",
+            "What’s your favorite way to build relationships with clients?",
+            "What’s a skill you’re currently working to improve?",
+            "What’s your go-to method for staying focused during the day?",
+            "What’s the most effective way you’ve marketed your business?",
+            "How do you handle negative feedback?",
+            "What’s one thing you do to make your workday more enjoyable?",
+            "What’s a recent decision you made that worked out well?",
             "What’s the first thing you do to start your day productively?",
             "What’s one word that describes your approach to business?",
             "Who’s a mentor or figure you admire, and why?",
             "What’s a book or resource every entrepreneur should read?",
             "What’s your favorite quote or mantra that keeps you motivated?",
-            "What’s the best decision you’ve made in your business?",
             "What’s one piece of advice you’d give to someone starting out?",
-            "What’s your go-to method for solving problems?",
             "What’s one habit that’s had the biggest impact on your success?",
-            "What’s one metric you track religiously in your business?"
+            "What’s one metric you track religiously in your business?",
+            "How will you know when you are successful?",
+            "What’s your favorite way to celebrate success?",
+            "What’s the best advice you’ve ever received?",
+            "How do you ensure you stay motivated during tough times?",
+            "Which company or brand do you admire and why?",
+            "What will you be celebrating this time next year?"
         ];
 
         let timerInterval;
@@ -168,9 +181,13 @@
             setTimeout(() => {
                 questionElement.innerText = questions[randomIndex];
                 questionElement.style.opacity = 1;
-            }, 500);
 
-            // Reset timer if one is already running
+                // Start timer after 2-second delay
+                setTimeout(() => startTimer(timerElement), 2000);
+            }, 500);
+        }
+
+        function startTimer(timerElement) {
             clearInterval(timerInterval);
             let timeLeft = 20;
 
