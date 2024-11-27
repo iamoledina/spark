@@ -56,7 +56,7 @@
             justify-content: center;
         }
         header img {
-            width: 90px; /* Reduced size */
+            width: 90px;
             margin-bottom: 20px;
         }
         h1 {
@@ -110,7 +110,6 @@
         <!-- Content Section -->
         <div class="content-section">
             <header>
-                <!-- Logo -->
                 <img src="https://i.imgur.com/JlL9PyT.png" alt="Kaizen Consulting Logo">
             </header>
             <h1>Theme Generator</h1>
@@ -126,72 +125,93 @@
     <script>
         const themes = [
             {
-                name: "Overcoming Challenges",
+                name: "Business Vision and Goals",
                 questions: [
-                    "What’s one of the toughest challenges you’ve faced?",
-                    "How did you work through it, and what kept you motivated?"
+                    "What was your original reason for going into entrepreneurship?"
                 ]
             },
             {
-                name: "Making Bold Decisions",
+                name: "Marketing Strategies",
                 questions: [
-                    "Tell us about a moment when you made a bold choice that changed everything.",
-                    "What risks did you take, and how did you manage them?"
+                    "What’s your marketing philosophy?"
                 ]
             },
             {
-                name: "Building Strong Relationships",
+                name: "Leading a Team",
                 questions: [
-                    "What’s a relationship or partnership that significantly impacted your business?",
-                    "How do you approach building lasting connections?"
+                    "How do you lead a team to success?"
+                ]
+            },
+            {
+                name: "The Bad Side of Business Ownership",
+                questions: [
+                    "What’s the most stressful part of business?"
+                ]
+            },
+            {
+                name: "Selling for Non-Sellers",
+                questions: [
+                    "What’s your best tip for selling authentically, without being pushy?"
+                ]
+            },
+            {
+                name: "Create a Winning Team",
+                questions: [
+                    "How do you get a team to perform at a superior level?"
                 ]
             },
             {
                 name: "Standing Out in the Market",
                 questions: [
-                    "What’s one thing you’ve done to make your business stand out from competitors?",
-                    "What strategies helped you create a unique identity?"
+                    "What’s one thing you’ve done to make your business stand out from competitors?"
                 ]
             },
             {
-                name: "Balancing Vision and Execution",
+                name: "Growing a Business",
                 questions: [
-                    "How do you stay focused on your vision while managing the daily grind?",
-                    "What’s a strategy you use to balance big ideas with practical steps?"
+                    "What’s been the biggest challenge in growing your business, and how have you overcome it?"
                 ]
             },
             {
-                name: "Celebrating Success",
+                name: "Building Relationships",
                 questions: [
-                    "What’s a recent win you’re proud of, and how did you celebrate it?",
-                    "How do you define success for yourself and your business?"
+                    "How do you build and maintain strong business relationships?"
                 ]
             },
             {
-                name: "Embracing Change",
+                name: "Resilience in Business",
                 questions: [
-                    "What’s a recent change you embraced, and how did it impact your business?",
-                    "How do you prepare yourself and your team for change?"
+                    "What’s one challenge that tested your resilience, and how did you push through?"
                 ]
             }
         ];
 
         function generateTheme() {
-            const randomIndex = Math.floor(Math.random() * themes.length);
-            const selectedTheme = themes[randomIndex];
             const themeDisplay = document.getElementById("theme-display");
             const questionsOutput = document.getElementById("questions-output");
 
-            // Display theme on the left over the image
-            themeDisplay.innerText = selectedTheme.name;
+            // Flash random themes
+            let flashInterval = setInterval(() => {
+                const randomIndex = Math.floor(Math.random() * themes.length);
+                themeDisplay.innerText = themes[randomIndex].name;
+            }, 100);
 
-            // Display questions in the content section
-            questionsOutput.innerHTML = `
-                <p>Opening Questions:</p>
-                <ul>
-                    ${selectedTheme.questions.map(question => `<li>${question}</li>`).join("")}
-                </ul>
-            `;
+            // Stop flashing and display final theme
+            setTimeout(() => {
+                clearInterval(flashInterval);
+                const finalIndex = Math.floor(Math.random() * themes.length);
+                const selectedTheme = themes[finalIndex];
+
+                themeDisplay.innerText = selectedTheme.name;
+
+                // Display questions in the content section
+                questionsOutput.innerHTML = `
+                    <p>Opening Questions:</p>
+                    <ul>
+                        ${selectedTheme.questions.map(question => `<li>${question}</li>`).join("")}
+                    </ul>
+                `;
+            }, 2000); // Flashes for 2 seconds
         }
     </script>
 </body>
