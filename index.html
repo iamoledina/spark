@@ -13,10 +13,17 @@
             background: linear-gradient(135deg, #7248bd, #9c74e0);
             color: #ffffff;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             height: 100vh;
             overflow: hidden;
+        }
+        /* Image Section */
+        .image-section {
+            flex: 1;
+            height: 100%;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/e/e5/Minneapolis_Skyline_May_2015.jpg') no-repeat center center;
+            background-size: cover;
         }
         /* Main Container */
         .container {
@@ -25,9 +32,10 @@
             color: #000000;
             border-radius: 15px;
             padding: 30px 20px;
-            width: 80%;
+            width: 40%;
             max-width: 600px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            margin-right: 30px;
         }
         /* Logo */
         header img {
@@ -67,6 +75,8 @@
             font-size: 20px;
             font-weight: bold;
             color: #333333;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
         }
         /* Footer */
         footer {
@@ -85,9 +95,10 @@
     </style>
 </head>
 <body>
+    <div class="image-section"></div>
     <div class="container">
         <header>
-            <img src="https://www.kaizen.consulting/assets/images/logo.png" alt="Kaizen Consulting Logo">
+            <img src="https://www.dropbox.com/scl/fo/tuqh55952sd869invited/AFW21MUe1sscRQZBwNAGZuU/LOGO%20SUITE/01_ON%20WHITE%20BACKGROUND/DIGITAL?dl=0&preview=Kaizen_Logo_Descriptor_RGB.png&raw=1" alt="Kaizen Consulting Logo">
         </header>
         <h1>Random Question Picker</h1>
         <p>Click the button below to generate a quick round question for your next discussion!</p>
@@ -114,7 +125,12 @@
 
         function getRandomQuestion() {
             const randomIndex = Math.floor(Math.random() * questions.length);
-            document.getElementById("question").innerText = questions[randomIndex];
+            const questionElement = document.getElementById("question");
+            questionElement.style.opacity = 0; // Start fade-out
+            setTimeout(() => {
+                questionElement.innerText = questions[randomIndex];
+                questionElement.style.opacity = 1; // Fade-in after text update
+            }, 500); // Match the transition duration
         }
     </script>
 </body>
