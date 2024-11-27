@@ -11,49 +11,61 @@
             margin: 0;
             padding: 0;
             background: linear-gradient(135deg, #7248bd, #9c74e0);
-            color: #ffffff;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: center;
             height: 100vh;
             overflow: hidden;
+        }
+        /* Two-Column Layout */
+        .content-wrapper {
+            display: flex;
+            width: 90%;
+            max-width: 1200px;
+            height: 80%;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            overflow: hidden;
+            background-color: #ffffff;
         }
         /* Image Section */
         .image-section {
             flex: 1;
-            height: 100%;
-            background: url('https://plus.unsplash.com/premium_photo-1670176446562-5c9712c12d74?q=80&w=2586&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/e/e5/Minneapolis_Skyline_May_2015.jpg') no-repeat center center;
             background-size: cover;
+            position: relative;
         }
-        /* Main Container */
-        .container {
-            text-align: center;
-            background: #ffffff;
-            color: #000000;
-            border-radius: 15px;
-            padding: 30px 20px;
-            width: 40%;
-            max-width: 600px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-            margin-right: 30px;
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(114, 72, 189, 0.6); /* Adds a gradient overlay */
         }
-        /* Logo */
+        /* Content Section */
+        .content-section {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
         header img {
-            width: 150px;
+            width: 180px;
             margin-bottom: 20px;
         }
-        /* Titles */
         h1 {
             font-size: 28px;
             color: #7248bd;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
         p {
             font-size: 18px;
             color: #555555;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
-        /* Button */
         button {
             padding: 12px 25px;
             font-size: 18px;
@@ -63,13 +75,12 @@
             color: #ffffff;
             border-radius: 50px;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
         button:hover {
+            transform: translateY(-3px);
             background: linear-gradient(135deg, #9c74e0, #7248bd);
-            transform: translateY(-2px);
         }
-        /* Question Display */
         #question {
             margin-top: 20px;
             font-size: 20px;
@@ -78,16 +89,14 @@
             opacity: 0;
             transition: opacity 0.5s ease-in-out;
         }
-        /* Footer */
         footer {
-            margin-top: 40px;
+            margin-top: auto;
             font-size: 14px;
             color: #999999;
         }
         footer a {
             color: #7248bd;
             text-decoration: none;
-            font-weight: bold;
         }
         footer a:hover {
             text-decoration: underline;
@@ -95,18 +104,25 @@
     </style>
 </head>
 <body>
-    <div class="image-section"></div>
-    <div class="container">
-        <header>
-            <img src="https://www.dropbox.com/scl/fo/tuqh55952sd869invited/AFW21MUe1sscRQZBwNAGZuU/LOGO%20SUITE/01_ON%20WHITE%20BACKGROUND/DIGITAL?dl=0&preview=Kaizen_Logo_Descriptor_RGB.png&raw=1" alt="Kaizen Consulting Logo">
-        </header>
-        <h1>Random Question Picker</h1>
-        <p>Click the button below to generate a quick round question for your next discussion!</p>
-        <button onclick="getRandomQuestion()">Get Question</button>
-        <p id="question">Your random question will appear here.</p>
-        <footer>
-            <p>&copy; 2024 <a href="https://www.kaizen.consulting/">Kaizen Consulting</a></p>
-        </footer>
+    <div class="content-wrapper">
+        <!-- Image Section -->
+        <div class="image-section">
+            <div class="image-overlay"></div>
+        </div>
+
+        <!-- Content Section -->
+        <div class="content-section">
+            <header>
+                <img src="https://www.dropbox.com/scl/fo/tuqh55952sd869invited/AFW21MUe1sscRQZBwNAGZuU/LOGO%20SUITE/01_ON%20WHITE%20BACKGROUND/DIGITAL?dl=0&preview=Kaizen_Logo_Descriptor_RGB.png&raw=1" alt="Kaizen Consulting Logo">
+            </header>
+            <h1>Random Question Picker</h1>
+            <p>Click the button below to generate a quick round question for your next discussion!</p>
+            <button onclick="getRandomQuestion()">Get Question</button>
+            <p id="question">Your random question will appear here.</p>
+            <footer>
+                <p>&copy; 2024 <a href="https://www.kaizen.consulting/">Kaizen Consulting</a></p>
+            </footer>
+        </div>
     </div>
 
     <script>
@@ -126,11 +142,11 @@
         function getRandomQuestion() {
             const randomIndex = Math.floor(Math.random() * questions.length);
             const questionElement = document.getElementById("question");
-            questionElement.style.opacity = 0; // Start fade-out
+            questionElement.style.opacity = 0; // Fade-out
             setTimeout(() => {
                 questionElement.innerText = questions[randomIndex];
-                questionElement.style.opacity = 1; // Fade-in after text update
-            }, 500); // Match the transition duration
+                questionElement.style.opacity = 1; // Fade-in after update
+            }, 500);
         }
     </script>
 </body>
