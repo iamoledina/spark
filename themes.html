@@ -44,7 +44,7 @@
         .theme-display {
             font-size: 36px;
             font-weight: bold;
-            margin: 20px 0;
+            margin-top: 20px;
             text-shadow: 1px 1px 6px rgba(255, 255, 255, 0.7);
         }
         /* Content Section */
@@ -114,7 +114,7 @@
             </header>
             <h1>Theme Generator</h1>
             <p>Click the button to generate a theme focus and opening questions!</p>
-            <button id="generate-button">Generate Theme</button>
+            <button onclick="generateTheme()">Generate Theme</button>
             <div id="questions-output" class="questions-output"></div>
             <footer>
                 <p>&copy; 2024 <a href="https://www.kaizen.consulting/">Kaizen Consulting</a></p>
@@ -168,3 +168,51 @@
             },
             {
                 name: "Growing a Business",
+                questions: [
+                    "What’s been the biggest challenge in growing your business, and how have you overcome it?"
+                ]
+            },
+            {
+                name: "Building Relationships",
+                questions: [
+                    "How do you build and maintain strong business relationships?"
+                ]
+            },
+            {
+                name: "Resilience in Business",
+                questions: [
+                    "What’s one challenge that tested your resilience, and how did you push through?"
+                ]
+            }
+        ];
+
+        function generateTheme() {
+            const themeDisplay = document.getElementById("theme-display");
+            const questionsOutput = document.getElementById("questions-output");
+
+            // Flash random themes
+            let flashInterval = setInterval(() => {
+                const randomIndex = Math.floor(Math.random() * themes.length);
+                themeDisplay.innerText = themes[randomIndex].name;
+            }, 100);
+
+            // Stop flashing and display final theme
+            setTimeout(() => {
+                clearInterval(flashInterval);
+                const finalIndex = Math.floor(Math.random() * themes.length);
+                const selectedTheme = themes[finalIndex];
+
+                themeDisplay.innerText = selectedTheme.name;
+
+                // Display questions in the content section
+                questionsOutput.innerHTML = `
+                    <p>Opening Questions:</p>
+                    <ul>
+                        ${selectedTheme.questions.map(question => `<li>${question}</li>`).join("")}
+                    </ul>
+                `;
+            }, 2000); // Flashes for 2 seconds
+        }
+    </script>
+</body>
+</html>
