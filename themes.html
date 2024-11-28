@@ -19,17 +19,35 @@
         }
         .content-wrapper {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
             width: 90%;
-            max-width: 800px;
-            height: auto;
+            max-width: 1200px;
+            height: 80%;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
             border-radius: 15px;
+            overflow: hidden;
             background-color: #ffffff;
-            padding: 30px;
+            position: relative;
+        }
+        /* Image Section */
+        .image-section {
+            flex: 1;
+            background: url('https://i.imgur.com/liYpHlf.jpg') no-repeat center center;
+            background-size: cover;
+            position: relative;
+            color: #ffffff;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             text-align: center;
+        }
+        /* Content Section */
+        .content-section {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         h1 {
             font-size: 28px;
@@ -65,7 +83,7 @@
             padding-left: 20px;
         }
         footer {
-            margin-top: 30px;
+            margin-top: auto;
             font-size: 14px;
             color: #999999;
         }
@@ -80,14 +98,20 @@
 </head>
 <body>
     <div class="content-wrapper">
-        <h1>Theme Generator</h1>
-        <p>Click the button to generate a theme focus and opening questions!</p>
-        <button onclick="generateTheme()">Generate Theme</button>
-        <div id="theme-display" class="theme-display">Click to Generate a Theme</div>
-        <div id="questions-output" class="questions-output"></div>
-        <footer>
-            <p>&copy; 2024 <a href="https://www.kaizen.consulting/">Kaizen Consulting</a></p>
-        </footer>
+        <!-- Image Section -->
+        <div class="image-section"></div>
+
+        <!-- Content Section -->
+        <div class="content-section">
+            <h1>Theme Generator</h1>
+            <p>Click the button to generate a theme focus and opening questions!</p>
+            <button onclick="generateTheme()">Generate Theme</button>
+            <div id="theme-display" class="theme-display">Click to Generate a Theme</div>
+            <div id="questions-output" class="questions-output"></div>
+            <footer>
+                <p>&copy; 2024 <a href="https://www.kaizen.consulting/">Kaizen Consulting</a></p>
+            </footer>
+        </div>
     </div>
 
     <script>
@@ -137,50 +161,4 @@
             {
                 name: "Growing a Business",
                 questions: [
-                    "What’s been the biggest challenge in growing your business, and how have you overcome it?"
-                ]
-            },
-            {
-                name: "Building Relationships",
-                questions: [
-                    "How do you build and maintain strong business relationships?"
-                ]
-            },
-            {
-                name: "Resilience in Business",
-                questions: [
-                    "What’s one challenge that tested your resilience, and how did you push through?"
-                ]
-            }
-        ];
-
-        function generateTheme() {
-            const themeDisplay = document.getElementById("theme-display");
-            const questionsOutput = document.getElementById("questions-output");
-
-            // Flash random themes
-            let flashInterval = setInterval(() => {
-                const randomIndex = Math.floor(Math.random() * themes.length);
-                themeDisplay.innerText = themes[randomIndex].name;
-            }, 100);
-
-            // Stop flashing and display final theme
-            setTimeout(() => {
-                clearInterval(flashInterval);
-                const finalIndex = Math.floor(Math.random() * themes.length);
-                const selectedTheme = themes[finalIndex];
-
-                themeDisplay.innerText = selectedTheme.name;
-
-                // Display questions in the content section
-                questionsOutput.innerHTML = `
-                    <p>Opening Questions:</p>
-                    <ul>
-                        ${selectedTheme.questions.map(question => `<li>${question}</li>`).join("")}
-                    </ul>
-                `;
-            }, 2000); // Flashes for 2 seconds
-        }
-    </script>
-</body>
-</html>
+                    "What
