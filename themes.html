@@ -19,45 +19,17 @@
         }
         .content-wrapper {
             display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             width: 90%;
-            max-width: 1200px;
-            height: 80%;
+            max-width: 800px;
+            height: auto;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
             border-radius: 15px;
-            overflow: hidden;
             background-color: #ffffff;
-            position: relative;
-        }
-        /* Image Section */
-        .image-section {
-            flex: 1;
-            background: url('https://i.imgur.com/liYpHlf.jpg') no-repeat center center;
-            background-size: cover;
-            position: relative;
-            color: #7248bd; /* Purple text color */
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            padding: 30px;
             text-align: center;
-        }
-        .theme-display {
-            font-size: 48px;
-            font-weight: bold;
-            margin-bottom: 20px;
-            text-shadow: 1px 1px 6px rgba(255, 255, 255, 0.7); /* Optional for visibility */
-        }
-        /* Content Section */
-        .content-section {
-            flex: 1;
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        header img {
-            width: 90px;
-            margin-bottom: 20px;
         }
         h1 {
             font-size: 28px;
@@ -78,6 +50,12 @@
         button:hover {
             transform: translateY(-3px);
         }
+        .theme-display {
+            font-size: 36px;
+            font-weight: bold;
+            color: #7248bd;
+            margin-top: 20px;
+        }
         .questions-output {
             margin-top: 20px;
             font-size: 18px;
@@ -87,7 +65,7 @@
             padding-left: 20px;
         }
         footer {
-            margin-top: auto;
+            margin-top: 30px;
             font-size: 14px;
             color: #999999;
         }
@@ -102,24 +80,14 @@
 </head>
 <body>
     <div class="content-wrapper">
-        <!-- Image Section -->
-        <div class="image-section">
-            <div id="theme-display" class="theme-display">Click to Generate a Theme</div>
-        </div>
-
-        <!-- Content Section -->
-        <div class="content-section">
-            <header>
-                <img src="https://i.imgur.com/JlL9PyT.png" alt="Kaizen Consulting Logo">
-            </header>
-            <h1>Theme Generator</h1>
-            <p>Click the button to generate a theme focus and opening questions!</p>
-            <button onclick="generateTheme()">Generate Theme</button>
-            <div id="questions-output" class="questions-output"></div>
-            <footer>
-                <p>&copy; 2024 <a href="https://www.kaizen.consulting/">Kaizen Consulting</a></p>
-            </footer>
-        </div>
+        <h1>Theme Generator</h1>
+        <p>Click the button to generate a theme focus and opening questions!</p>
+        <button onclick="generateTheme()">Generate Theme</button>
+        <div id="theme-display" class="theme-display">Click to Generate a Theme</div>
+        <div id="questions-output" class="questions-output"></div>
+        <footer>
+            <p>&copy; 2024 <a href="https://www.kaizen.consulting/">Kaizen Consulting</a></p>
+        </footer>
     </div>
 
     <script>
