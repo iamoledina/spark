@@ -114,7 +114,7 @@
             </header>
             <h1>Theme Generator</h1>
             <p>Click the button to generate a theme focus and opening questions!</p>
-            <button onclick="generateTheme()">Generate Theme</button>
+            <button id="generate-button">Generate Theme</button>
             <div id="questions-output" class="questions-output"></div>
             <footer>
                 <p>&copy; 2024 <a href="https://www.kaizen.consulting/">Kaizen Consulting</a></p>
@@ -122,4 +122,49 @@
         </div>
     </div>
 
-    <scr
+    <script>
+        const themes = [
+            {
+                name: "Business Vision and Goals",
+                questions: [
+                    "What was your original reason for going into entrepreneurship?"
+                ]
+            },
+            {
+                name: "Marketing Strategies",
+                questions: [
+                    "What’s your marketing philosophy?"
+                ]
+            },
+            {
+                name: "Leading a Team",
+                questions: [
+                    "How do you lead a team to success?"
+                ]
+            },
+            {
+                name: "The Bad Side of Business Ownership",
+                questions: [
+                    "What’s the most stressful part of business?"
+                ]
+            },
+            {
+                name: "Selling for Non-Sellers",
+                questions: [
+                    "What’s your best tip for selling authentically, without being pushy?"
+                ]
+            },
+            {
+                name: "Create a Winning Team",
+                questions: [
+                    "How do you get a team to perform at a superior level?"
+                ]
+            },
+            {
+                name: "Standing Out in the Market",
+                questions: [
+                    "What’s one thing you’ve done to make your business stand out from competitors?"
+                ]
+            },
+            {
+                name: "Growing a Business",
