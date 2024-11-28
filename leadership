@@ -45,11 +45,6 @@
       color: #4B2C82;
       margin-bottom: 20px;
     }
-    .hero-image {
-      background: url('https://via.placeholder.com/1200x600') center/cover no-repeat;
-      height: 300px;
-      margin-bottom: 20px;
-    }
     .program-overview {
       background: #f9f9f9;
       padding: 20px;
@@ -114,8 +109,6 @@
     <p>A Management Training Program for Small Business Owners and Nonprofits</p>
     <a href="#apply" class="cta-button">Apply Now</a>
   </header>
-
-  <div class="hero-image"></div>
 
   <section>
     <h2>About the Leadership Lab</h2>
