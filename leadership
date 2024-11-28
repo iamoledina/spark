@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Join the Leadership Lab, a management training program for small businesses and nonprofits. Build leadership skills, inspire change, and drive success.">
+  <title>Leadership Lab | Kaizen Consulting</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background: #4B2C82; /* Kaizen purple */
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+    header p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+    .cta-button {
+      background: #FFA500;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      font-size: 1rem;
+      border-radius: 5px;
+      display: inline-block;
+      margin-top: 20px;
+    }
+    section {
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    section h2 {
+      color: #4B2C82;
+      margin-bottom: 20px;
+    }
+    .hero-image {
+      background: url('https://via.placeholder.com/1200x600') center/cover no-repeat;
+      height: 300px;
+      margin-bottom: 20px;
+    }
+    .program-overview {
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    table th, table td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+    table th {
+      background: #4B2C82;
+      color: white;
+    }
+    .packages {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .package {
+      flex: 1;
+      background: #f1f1f1;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .package h3 {
+      color: #4B2C82;
+    }
+    .cta-section {
+      background: #4B2C82;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .cta-section h2 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    footer a {
+      color: #FFA500;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Leadership Lab</h1>
+    <p>A Management Training Program for Small Business Owners and Nonprofits</p>
+    <a href="#apply" class="cta-button">Apply Now</a>
+  </header>
+
+  <div class="hero-image"></div>
+
+  <section>
+    <h2>About the Leadership Lab</h2>
+    <p>The 'Leadership Lab’ is a hands-on management training experience designed to empower small business owners and their teams with the practical skills to lead with confidence and inspire positive change in their organizations.</p>
+    <p>In today’s fast-paced economy, leadership isn’t just a skill—it’s a competitive edge that drives business success.</p>
+  </section>
+
+  <section class="program-overview">
+    <h2>Program Goals</h2>
+    <ul>
+      <li>Serve as agents of positive transformation and drive progress.</li>
+      <li>Effectively influence team dynamics and motivate individuals towards shared goals.</li>
+      <li>Elevate team performance by guiding them toward higher standards of excellence.</li>
+      <li>Become a reliable force in executing strategic objectives with consistency and success.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Program Overview</h2>
+    <table>
+      <tr>
+        <th>Session</th>
+        <th>Date</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td>Leadership Principles</td>
+        <td>January 8th, 2025</td>
+        <td>Explore foundational leadership principles to set the stage for success.</td>
+      </tr>
+      <tr>
+        <td>Managing with Personality</td>
+        <td>January 10th, 2025</td>
+        <td>Understand MBTI to adapt leadership styles for diverse teams.</td>
+      </tr>
+      <tr>
+        <td>Create a Winning Culture</td>
+        <td>January 17th, 2025</td>
+        <td>Build a growth-oriented company culture that motivates teams.</td>
+      </tr>
+      <tr>
+        <td>Recruit A-Team Players</td>
+        <td>January 24th, 2025</td>
+        <td>Proven strategies for hiring and retaining top talent.</td>
+      </tr>
+      <tr>
+        <td>Coaching to Elevate</td>
+        <td>January 31st, 2025</td>
+        <td>Learn to provide feedback, set expectations, and develop teams.</td>
+      </tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Packages and Pricing</h2>
+    <div class="packages">
+      <div class="package">
+        <h3>Full Access Package</h3>
+        <p><strong>$1,350</strong></p>
+        <p>Includes all five sessions, virtual and in-person workshops.</p>
+      </div>
+      <div class="package">
+        <h3>Leadership Mastermind Package</h3>
+        <p><strong>$1,800</strong></p>
+        <p>Includes everything in Full Access plus three additional mastermind sessions.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <h2>Ready to Transform Your Leadership?</h2>
+    <a href="#apply" class="cta-button">Apply Now</a>
+  </section>
+
+  <footer>
+    <p>© 2024 Kaizen Consulting. All rights reserved.</p>
+    <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+  </footer>
+</body>
+</html>
