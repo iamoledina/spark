@@ -34,12 +34,18 @@
             background: url('https://i.imgur.com/liYpHlf.jpg') no-repeat center center;
             background-size: cover;
             position: relative;
-            color: #ffffff;
+            color: #7248bd; /* Purple text color */
             padding: 20px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             text-align: center;
+        }
+        .theme-display {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 6px rgba(255, 255, 255, 0.7); /* Optional for visibility */
         }
         /* Content Section */
         .content-section {
@@ -48,6 +54,10 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+        }
+        header img {
+            width: 90px;
+            margin-bottom: 20px;
         }
         h1 {
             font-size: 28px;
@@ -67,12 +77,6 @@
         }
         button:hover {
             transform: translateY(-3px);
-        }
-        .theme-display {
-            font-size: 36px;
-            font-weight: bold;
-            color: #7248bd;
-            margin-top: 20px;
         }
         .questions-output {
             margin-top: 20px;
@@ -99,14 +103,18 @@
 <body>
     <div class="content-wrapper">
         <!-- Image Section -->
-        <div class="image-section"></div>
+        <div class="image-section">
+            <div id="theme-display" class="theme-display">Click to Generate a Theme</div>
+        </div>
 
         <!-- Content Section -->
         <div class="content-section">
+            <header>
+                <img src="https://i.imgur.com/JlL9PyT.png" alt="Kaizen Consulting Logo">
+            </header>
             <h1>Theme Generator</h1>
             <p>Click the button to generate a theme focus and opening questions!</p>
             <button onclick="generateTheme()">Generate Theme</button>
-            <div id="theme-display" class="theme-display">Click to Generate a Theme</div>
             <div id="questions-output" class="questions-output"></div>
             <footer>
                 <p>&copy; 2024 <a href="https://www.kaizen.consulting/">Kaizen Consulting</a></p>
@@ -161,4 +169,50 @@
             {
                 name: "Growing a Business",
                 questions: [
-                    "What
+                    "What’s been the biggest challenge in growing your business, and how have you overcome it?"
+                ]
+            },
+            {
+                name: "Building Relationships",
+                questions: [
+                    "How do you build and maintain strong business relationships?"
+                ]
+            },
+            {
+                name: "Resilience in Business",
+                questions: [
+                    "What’s one challenge that tested your resilience, and how did you push through?"
+                ]
+            }
+        ];
+
+        function generateTheme() {
+            const themeDisplay = document.getElementById("theme-display");
+            const questionsOutput = document.getElementById("questions-output");
+
+            // Flash random themes
+            let flashInterval = setInterval(() => {
+                const randomIndex = Math.floor(Math.random() * themes.length);
+                themeDisplay.innerText = themes[randomIndex].name;
+            }, 100);
+
+            // Stop flashing and display final theme
+            setTimeout(() => {
+                clearInterval(flashInterval);
+                const finalIndex = Math.floor(Math.random() * themes.length);
+                const selectedTheme = themes[finalIndex];
+
+                themeDisplay.innerText = selectedTheme.name;
+
+                // Display questions in the content section
+                questionsOutput.innerHTML = `
+                    <p>Opening Questions:</p>
+                    <ul>
+                        ${selectedTheme.questions.map(question => `<li>${question}</li>`).join("")}
+                    </ul>
+                `;
+            }, 2000); // Flashes for 2 seconds
+        }
+    </script>
+</body>
+</html>
